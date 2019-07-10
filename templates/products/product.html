@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content%}
+
+{% for product in all_products %}
+
+<style>
+
+    .back_color{
+
+        background-color: rgb(173, 175, 179);
+        padding: 2%;
+    }
+
+</style>
+<br>
+
+<div class="media container back_color">
+        
+    
+        <img src="{{product.image_url}}" class="mr-3" alt="..." style="width: 200px; height: 200px; background-color: rgb(173, 175, 179);">
+        <div class="media-body">
+            <a href="{% url 'detail' product.id %}"> <h5 class="mt-0">{{product.title}}</h5></a>
+            <h4>Publish Data  : {{product.date}}</h4>
+            <p> {{product.detail}} </p>
+        </div>
+</div>
+<br>
+
+{% endfor %}
+
+
+{% endblock %}
